@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Boîte de Pandore Moderne</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --yellow: #f5c842;
+    --red: #e8314a;
+    --pink: #f4687e;
+    --white: #f0ece3;
+    --grey: #1e1e1e;
+    --text-muted: #aaaaaa;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Space Mono', monospace;
+    overflow-x: hidden;
+  }
+
+  /* SLIDE 1 — COVER */
+  .slide {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 80px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+
+  /* ========== SLIDE 1 ========== */
+  #s1 {
+    background: var(--black);
+    justify-content: flex-end;
+    padding-bottom: 80px;
+  }
+
+  #s1 .bg-text {
+    position: absolute;
+    top: -20px; left: -10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(120px, 22vw, 280px);
+    color: rgba(245,200,66,0.06);
+    line-height: 1;
+    white-space: nowrap;
+    pointer-events: none;
+    animation: fadeIn 1.2s ease forwards;
+  }
+
+  #s1 .tag {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 24px;
+    animation: slideUp 0.8s 0.2s both;
+  }
+
+  #s1 h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(60px, 10vw, 130px);
+    line-height: 0.92;
+    color: var(--white);
+    animation: slideUp 0.8s 0.4s both;
+  }
+
+  #s1 h1 span.accent {
+    color: var(--yellow);
+    display: block;
+  }
+
+  #s1 .subtitle {
+    margin-top: 32px;
+    max-width: 520px;
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--text-muted);
+    animation: slideUp 0.8s 0.6s both;
+  }
+
+  #s1 .box-icon {
+    position: absolute;
+    top: 50px; right: 80px;
+    width: 220px; height: 180px;
+    animation: float 4s ease-in-out infinite, fadeIn 1s 0.8s both;
+  }
+
+  #s1 .divider {
+    width: 60px; height: 3px;
+    background: var(--yellow);
+    margin: 28px 0;
+    animation: slideUp 0.8s 0.5s both;
+  }
+
+  /* ========== SLIDE 2 — INTRO ========== */
+  #s2 {
+    background: var(--yellow);
+    color: var(--black);
+  }
+
+  #s2 .num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 180px;
+    color: rgba(0,0,0,0.08);
+    position: absolute;
+    top: -20px; right: 60px;
+    line-height: 1;
+  }
+
+  #s2 h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 7vw, 90px);
+    color: var(--black);
+    line-height: 1;
+    margin-bottom: 40px;
+  }
+
+  #s2 .myth-box {
+    background: var(--black);
+    color: var(--white);
+    padding: 36px 40px;
+    border-radius: 4px;
+    max-width: 560px;
+    position: relative;
+  }
+
+  #s2 .myth-box h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    margin-bottom: 14px;
+    color: var(--yellow);
+  }
+
+  #s2 .myth-box p {
+    font-size: 12.5px;
+    line-height: 2;
+    color: #ccc;
+  }
+
+  #s2 .parallel {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+  }
+
+  #s2 .parallel .pill {
+    background: rgba(0,0,0,0.15);
+    padding: 12px 20px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--black);
+  }
+
+  /* ========== SLIDE 3 — LE MONDE VIRTUEL ========== */
+  #s3 {
+    background: var(--grey);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    padding: 80px;
+  }
+
+  #s3 .label {
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 20px;
+  }
+
+  #s3 h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 6vw, 80px);
+    line-height: 1;
+    margin-bottom: 28px;
+  }
+
+  #s3 h2 em {
+    color: var(--pink);
+    font-style: normal;
+  }
+
+  #s3 p {
+    font-size: 12.5px;
+    line-height: 2;
+    color: #bbb;
+    margin-bottom: 20px;
+  }
+
+  .dangers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .danger-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 20px;
+    transition: border-color 0.3s;
+  }
+
+  .danger-card:hover {
+    border-color: var(--pink);
+  }
+
+  .danger-card .icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .danger-card h4 {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 6px;
+  }
+
+  .danger-card p {
+    font-size: 11px;
+    line-height: 1.7;
+    color: #888;
+    margin: 0;
+  }
+
+  /* ========== SLIDE 4 — LA FRONTIÈRE ========== */
+  #s4 {
+    background: var(--black);
+    min-height: 100vh;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #s4 .section-label {
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 20px;
+  }
+
+  #s4 h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 7vw, 90px);
+    margin-bottom: 60px;
+    line-height: 1;
+  }
+
+  .frontier-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    align-items: stretch;
+  }
+
+  .frontier-col {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .frontier-col.real {
+    background: rgba(245,200,66,0.06);
+    border: 1px solid rgba(245,200,66,0.2);
+    border-radius: 8px 0 0 8px;
+  }
+
+  .frontier-col.virtual {
+    background: rgba(232,49,74,0.06);
+    border: 1px solid rgba(232,49,74,0.2);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .frontier-divider {
+    width: 3px;
+    background: linear-gradient(to bottom, var(--yellow), var(--red));
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .frontier-divider .vs {
+    background: var(--black);
+    border: 2px solid var(--white);
+    padding: 8px 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+    transform: rotate(-90deg);
+  }
+
+  .frontier-col h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .frontier-col.real h3 { color: var(--yellow); }
+  .frontier-col.virtual h3 { color: var(--pink); }
+
+  .frontier-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #aaa;
+  }
+
+  .frontier-item .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  .real .dot { background: var(--yellow); }
+  .virtual .dot { background: var(--pink); }
+
+  /* ========== SLIDE 5 — IMPACTS ========== */
+  #s5 {
+    background: var(--red);
+    padding: 80px;
+  }
+
+  #s5 .section-label {
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+  }
+
+  #s5 h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 7vw, 90px);
+    color: var(--white);
+    margin-bottom: 60px;
+    line-height: 1;
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .stat-box {
+    background: rgba(0,0,0,0.2);
+    padding: 32px 28px;
+    border-radius: 6px;
+  }
+
+  .stat-box .big-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    color: var(--yellow);
+    line-height: 1;
+  }
+
+  .stat-box .stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+    margin-top: 8px;
+  }
+
+  .impact-quote {
+    background: rgba(0,0,0,0.25);
+    border-left: 4px solid var(--yellow);
+    padding: 28px 36px;
+    border-radius: 0 6px 6px 0;
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.6;
+  }
+
+  /* ========== SLIDE 6 — CONCLUSION ========== */
+  #s6 {
+    background: var(--black);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #s6 .bg-circle {
+    position: absolute;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,200,66,0.12) 0%, transparent 70%);
+    right: -100px; bottom: -100px;
+    pointer-events: none;
+  }
+
+  #s6 h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 8vw, 100px);
+    line-height: 1;
+    margin-bottom: 40px;
+  }
+
+  #s6 h2 .line2 { color: var(--yellow); display: block; }
+
+  #s6 .conclusion-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin-bottom: 50px;
+  }
+
+  .concl-item {
+    border-top: 2px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+  }
+
+  .concl-item h4 {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 10px;
+  }
+
+  .concl-item p {
+    font-size: 12px;
+    line-height: 1.9;
+    color: #999;
+  }
+
+  #s6 .final-line {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: rgba(255,255,255,0.4);
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  /* PROGRESS BAR */
+  .progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    background: var(--yellow);
+    z-index: 100;
+    transition: width 0.3s;
+    width: 0%;
+  }
+
+  /* SLIDE NAV DOTS */
+  .nav-dots {
+    position: fixed;
+    right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+  }
+
+  .nav-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+  }
+
+  .nav-dot.active {
+    background: var(--yellow);
+    transform: scale(1.4);
+  }
+
+  /* Slide number */
+  .slide-num {
+    position: absolute;
+    bottom: 36px; right: 80px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.2);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-16px); }
+  }
+
+  /* Print / PDF note */
+  @media print {
+    .nav-dots, .progress-bar { display: none; }
+    .slide { page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav class="nav-dots" id="navDots">
+  <button class="nav-dot active" onclick="scrollToSlide(0)"></button>
+  <button class="nav-dot" onclick="scrollToSlide(1)"></button>
+  <button class="nav-dot" onclick="scrollToSlide(2)"></button>
+  <button class="nav-dot" onclick="scrollToSlide(3)"></button>
+  <button class="nav-dot" onclick="scrollToSlide(4)"></button>
+  <button class="nav-dot" onclick="scrollToSlide(5)"></button>
+</nav>
+
+<!-- ========== SLIDE 1 — COVER ========== -->
+<section class="slide" id="s1">
+  <div class="bg-text">PANDORE</div>
+
+  <!-- Animated box SVG -->
+  <svg class="box-icon" viewBox="0 0 220 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Box body -->
+    <rect x="20" y="80" width="180" height="90" rx="4" fill="#1a1a1a" stroke="#f5c842" stroke-width="2"/>
+    <!-- Box lid (slightly open) -->
+    <path d="M20 80 L0 50 L200 30 L220 80Z" fill="#2a2a2a" stroke="#f5c842" stroke-width="2"/>
+    <!-- Glow from inside -->
+    <ellipse cx="110" cy="80" rx="60" ry="10" fill="#f5c842" opacity="0.25"/>
+    <line x1="110" y1="30" x2="110" y2="80" stroke="#f5c842" stroke-width="1" stroke-dasharray="4 4" opacity="0.5"/>
+    <!-- Particles escaping -->
+    <circle cx="80" cy="50" r="3" fill="#e8314a" opacity="0.8"/>
+    <circle cx="130" cy="35" r="2" fill="#f5c842" opacity="0.7"/>
+    <circle cx="155" cy="55" r="4" fill="#f4687e" opacity="0.6"/>
+    <circle cx="65" cy="30" r="2" fill="#fff" opacity="0.5"/>
+    <!-- Social media icons suggestion -->
+    <rect x="88" y="100" width="44" height="30" rx="3" fill="#333" stroke="#f5c842" stroke-width="1"/>
+    <text x="110" y="119" text-anchor="middle" font-size="14" fill="#f5c842" font-family="monospace">f</text>
+  </svg>
+
+  <div class="tag">Projet de réflexion numérique · 2026</div>
+  <h1>La Boîte<br>de <span class="accent">Pandore</span><br>Moderne</h1>
+  <div class="divider"></div>
+  <p class="subtitle">Les limites et frontières entre la vie réelle et la vie virtuelle — une exploration des dangers cachés dans notre boîte numérique quotidienne.</p>
+  <div class="slide-num">01 / 06</div>
+</section>
+
+<!-- ========== SLIDE 2 — INTRO ========== -->
+<section class="slide" id="s2">
+  <div class="num">02</div>
+  <h2>Le mythe<br>revisité</h2>
+  <div class="myth-box">
+    <h3>🏺 Dans la mythologie grecque…</h3>
+    <p>Pandore ouvre une boîte libérant tous les maux du monde : maladies, souffrance, jalousie… Ne restait au fond qu'un seul bien : l'Espoir.</p>
+  </div>
+  <div class="parallel">
+    <span class="pill">📦 La boîte = nos appareils numériques</span>
+    <span class="pill">👤 Pandore = l'utilisateur</span>
+    <span class="pill">⚠️ Les maux = les dérives du virtuel</span>
+  </div>
+  <div class="slide-num">02 / 06</div>
+</section>
+
+<!-- ========== SLIDE 3 — LE MONDE VIRTUEL ========== -->
+<section class="slide" id="s3">
+  <div>
+    <div class="label">Problématique</div>
+    <h2>Le monde<br><em>virtuel</em> :<br>une fausse<br>réalité ?</h2>
+    <p>Internet, les réseaux sociaux et les jeux vidéo créent une réalité parallèle qui attire, piège et modifie nos comportements.</p>
+    <p>La frontière entre ce qui est <strong style="color:var(--white)">vrai</strong> et ce qui est <strong style="color:var(--pink)">construit</strong> devient de plus en plus floue.</p>
+  </div>
+  <div class="dangers-grid">
+    <div class="danger-card">
+      <span class="icon">😔</span>
+      <h4>Cyberharcèlement</h4>
+      <p>Les violences en ligne ont des conséquences réelles et profondes sur la santé mentale.</p>
+    </div>
+    <div class="danger-card">
+      <span class="icon">📱</span>
+      <h4>Addiction</h4>
+      <p>Les algorithmes sont conçus pour maximiser le temps passé en ligne, créant une dépendance.</p>
+    </div>
+    <div class="danger-card">
+      <span class="icon">🎭</span>
+      <h4>Faux profils</h4>
+      <p>La mise en scène de soi distorte la perception de la réalité pour soi et pour les autres.</p>
+    </div>
+    <div class="danger-card">
+      <span class="icon">🫧</span>
+      <h4>Bulle de filtre</h4>
+      <p>Les algorithmes n'exposent qu'à ce qui plait, limitant l'accès à une information diverse.</p>
+    </div>
+  </div>
+  <div class="slide-num">03 / 06</div>
+</section>
+
+<!-- ========== SLIDE 4 — LA FRONTIÈRE ========== -->
+<section class="slide" id="s4">
+  <div class="section-label">Analyse · La frontière</div>
+  <h2>Réel vs Virtuel —<br>où est la limite ?</h2>
+
+  <div class="frontier-container">
+    <div class="frontier-col real">
+      <h3>🌿 Vie Réelle</h3>
+      <div class="frontier-item"><span class="dot"></span><span>Relations physiques, contact humain direct</span></div>
+      <div class="frontier-item"><span class="dot"></span><span>Conséquences tangibles et immédiates</span></div>
+      <div class="frontier-item"><span class="dot"></span><span>Identité stable et incarnée</span></div>
+      <div class="frontier-item"><span class="dot"></span><span>Temps limité, irréversible</span></div>
+      <div class="frontier-item"><span class="dot"></span><span>Erreurs vécues, cicatrices réelles</span></div>
+    </div>
+
+    <div class="frontier-divider">
+      <span class="vs">LIMITE</span>
+    </div>
+
+    <div class="frontier-col virtual">
+      <h3>💻 Vie Virtuelle</h3>
+      <div class="frontier-item"><span class="dot"></span><span>Relations à distance, avatars, pseudos</span></div>
+      <div class="frontier-item"><span class="dot"></span><span>Actions apparemment sans conséquence</span></div>
+      <div class="frontier-item"><span class="dot"></span><span>Identités multiples et mouvantes</span></div>
+      <div class="frontier-item"><span class="dot"></span><span>Connexion permanente, flux infini</span></div>
+      <div class="frontier-item"><span class="dot"></span><span>Erreurs effaçables… ou virales à jamais</span></div>
+    </div>
+  </div>
+  <div class="slide-num">04 / 06</div>
+</section>
+
+<!-- ========== SLIDE 5 — IMPACTS ========== -->
+<section class="slide" id="s5">
+  <div class="section-label">Chiffres & Impacts</div>
+  <h2>Les maux<br>libérés</h2>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="big-num">7h</div>
+      <div class="stat-label">Temps moyen passé sur écran par jour par un adolescent en France</div>
+    </div>
+    <div class="stat-box">
+      <div class="big-num">1/3</div>
+      <div class="stat-label">Des jeunes déclarent avoir été victimes de cyberharcèlement</div>
+    </div>
+    <div class="stat-box">
+      <div class="big-num">+40%</div>
+      <div class="stat-label">Hausse de l'anxiété chez les jeunes liée aux réseaux sociaux depuis 2012</div>
+    </div>
+  </div>
+
+  <div class="impact-quote">
+    « Nous avons ouvert une boîte dont nous ne maîtrisons plus les contenus — il est temps de regarder ce qui s'en est échappé. »
+  </div>
+  <div class="slide-num">05 / 06</div>
+</section>
+
+<!-- ========== SLIDE 6 — CONCLUSION ========== -->
+<section class="slide" id="s6">
+  <div class="bg-circle"></div>
+  <h2>Et l'Espoir<br><span class="line2">au fond de la boîte ?</span></h2>
+
+  <div class="conclusion-grid">
+    <div class="concl-item">
+      <h4>🧠 Éducation numérique</h4>
+      <p>Apprendre à identifier le vrai du faux, à détecter les manipulations et à construire un usage conscient du virtuel.</p>
+    </div>
+    <div class="concl-item">
+      <h4>⚖️ Limites & Règles</h4>
+      <p>Fixer des règles personnelles : temps d'écran, espaces sans téléphone, moments de déconnexion volontaire.</p>
+    </div>
+    <div class="concl-item">
+      <h4>🤝 Dialogue ouvert</h4>
+      <p>Parler des expériences en ligne, partager les risques, ne pas laisser la vie virtuelle isoler du monde réel.</p>
+    </div>
+    <div class="concl-item">
+      <h4>🔍 Esprit critique</h4>
+      <p>Questionner ce que les algorithmes nous montrent et cultiver une curiosité active plutôt que passive.</p>
+    </div>
+  </div>
+
+  <p class="final-line">Comme Pandore, nous ne pouvons pas refermer la boîte — mais nous pouvons choisir comment vivre avec ce qu'elle contient.</p>
+  <div class="slide-num">06 / 06</div>
+</section>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.nav-dot');
+  const progressBar = document.getElementById('progressBar');
+
+  function scrollToSlide(index) {
+    slides[index].scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function updateNav() {
+    const scrollY = window.scrollY;
+    const totalH = document.body.scrollHeight - window.innerHeight;
+    progressBar.style.width = (scrollY / totalH * 100) + '%';
+
+    let activeIdx = 0;
+    slides.forEach((s, i) => {
+      const rect = s.getBoundingClientRect();
+      if (rect.top <= window.innerHeight / 2) activeIdx = i;
+    });
+
+    dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
+  }
+
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+</script>
+</body>
+</html>
